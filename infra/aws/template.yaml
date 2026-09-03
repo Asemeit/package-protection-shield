@@ -1,0 +1,43 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Description": "Package Protection Shield — minimal AWS Builder stub (API + table names)",
+  "Parameters": {
+    "ProjectName": {
+      "Type": "String",
+      "Default": "pps"
+    }
+  },
+  "Resources": {
+    "EventsTable": {
+      "Type": "AWS::DynamoDB::Table",
+      "Properties": {
+        "TableName": { "Fn::Sub": "${ProjectName}-events" },
+        "BillingMode": "PAY_PER_REQUEST",
+        "AttributeDefinitions": [
+          { "AttributeName": "deviceId", "AttributeType": "S" },
+          { "AttributeName": "occurredAt", "AttributeType": "S" }
+        ],
+        "KeySchema": [
+          { "AttributeName": "deviceId", "KeyType": "HASH" },
+          { "AttributeName": "occurredAt", "KeyType": "RANGE" }
+        ]
+      }
+    },
+    "SummariesBucket": {
+      "Type": "AWS::S3::Bucket",
+      "Properties": {
+        "BucketName": { "Fn::Sub": "${ProjectName}-summaries-${AWS::AccountId}" },
+        "PublicAccessBlockConfiguration": {
+          "BlockPublicAcls": true,
+          "BlockPublicPolicy": true,
+          "IgnorePublicAcls": true,
+          "RestrictPublicBuckets": true
+        }
+      }
+    }
+  },
+  "Outputs": {
+    "EventsTableName": { "Value": { "Ref": "EventsTable" } },
+    "SummariesBucketName": { "Value": { "Ref": "SummariesBucket" } }
+  }
+}

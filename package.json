@@ -1,0 +1,18 @@
+{
+  "name": "package-protection-shield",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Ring-powered package protection: detect deliveries, recommend next actions (Amazon Hackathon 2026)",
+  "author": "Precious Asemeit <pasemeit@gmail.com>",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "demo": "node scripts/demo.mjs",
+    "detect:test": "node --test services/detect/src/detect.test.mjs",
+    "actions:test": "node --test services/actions/src/actions.test.mjs",
+    "test": "npm run detect:test && npm run actions:test"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

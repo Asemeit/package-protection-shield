@@ -1,0 +1,52 @@
+[
+  {
+    "id": "evt_001",
+    "deviceId": "front-door",
+    "deviceName": "Front Door",
+    "type": "ding",
+    "occurredAt": "2026-09-03T14:02:10.000Z"
+  },
+  {
+    "id": "evt_002",
+    "deviceId": "front-door",
+    "deviceName": "Front Door",
+    "type": "motion",
+    "occurredAt": "2026-09-03T14:02:45.000Z",
+    "durationSec": 18,
+    "zone": "porch"
+  },
+  {
+    "id": "evt_003",
+    "deviceId": "front-door",
+    "deviceName": "Front Door",
+    "type": "motion",
+    "occurredAt": "2026-09-03T14:03:20.000Z",
+    "durationSec": 9,
+    "zone": "porch"
+  },
+  {
+    "id": "evt_004",
+    "deviceId": "driveway",
+    "deviceName": "Driveway Cam",
+    "type": "motion",
+    "occurredAt": "2026-09-03T11:15:00.000Z",
+    "durationSec": 4,
+    "zone": "street"
+  },
+  {
+    "id": "evt_005",
+    "deviceId": "front-door",
+    "deviceName": "Front Door",
+    "type": "ding",
+    "occurredAt": "2026-09-03T19:41:00.000Z"
+  },
+  {
+    "id": "evt_006",
+    "deviceId": "front-door",
+    "deviceName": "Front Door",
+    "type": "motion",
+    "occurredAt": "2026-09-03T19:41:30.000Z",
+    "durationSec": 22,
+    "zone": "porch"
+  }
+]

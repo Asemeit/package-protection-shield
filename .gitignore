@@ -1,0 +1,15 @@
+node_modules/
+dist/
+build/
+.next/
+.DS_Store
+.env
+.env.*
+!.env.example
+coverage/
+.aws-sam/
+*.log
+.turbo/
+.idea/
+.vscode/
+*.pem

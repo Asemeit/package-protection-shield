@@ -1,0 +1,183 @@
+:root {
+  --bg: #0f1412;
+  --panel: #18201c;
+  --text: #e8efe9;
+  --muted: #9bb0a3;
+  --accent: #3dd68c;
+  --warn: #f0b429;
+  --line: #2a3830;
+  --font: "IBM Plex Sans", "Segoe UI", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font);
+  color: var(--text);
+  background:
+    radial-gradient(1200px 500px at 10% -10%, #1d3a2c 0%, transparent 55%),
+    var(--bg);
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+  align-items: flex-start;
+  padding: 2rem 2rem 1rem;
+}
+
+.eyebrow {
+  margin: 0 0 0.35rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.75rem;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+}
+
+.sub {
+  margin: 0.5rem 0 0;
+  color: var(--muted);
+  max-width: 36rem;
+}
+
+.privacy {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.65rem 1rem;
+  white-space: nowrap;
+}
+
+.banner {
+  margin: 0 2rem 1.25rem;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--panel);
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 1.25rem;
+  padding: 0 2rem 2rem;
+}
+
+@media (max-width: 860px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .top {
+    flex-direction: column;
+  }
+}
+
+h2 {
+  margin: 0 0 0.75rem;
+  font-size: 1rem;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.mt {
+  margin-top: 1.5rem;
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 1rem 1.1rem;
+}
+
+.card h3 {
+  margin: 0 0 0.35rem;
+  font-size: 1.05rem;
+}
+
+.meta {
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin: 0.15rem 0;
+}
+
+.reasons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-top: 0.65rem;
+}
+
+.pill {
+  font-size: 0.75rem;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  color: var(--muted);
+}
+
+.pill.hot {
+  border-color: color-mix(in srgb, var(--accent) 50%, var(--line));
+  color: var(--accent);
+}
+
+.bar {
+  margin-top: 0.75rem;
+  height: 6px;
+  background: #243028;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.bar > span {
+  display: block;
+  height: 100%;
+  background: var(--accent);
+}
+
+button.action {
+  margin-top: 0.85rem;
+  width: 100%;
+  border: 0;
+  border-radius: 10px;
+  padding: 0.7rem 0.9rem;
+  background: var(--accent);
+  color: #062014;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+button.action:disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 2rem 2rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+}

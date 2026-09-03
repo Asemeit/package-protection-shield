@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Package Protection Shield</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="top">
+      <div>
+        <p class="eyebrow">Ring track · Amazon Developer Hackathon 2026</p>
+        <h1>Package Protection Shield</h1>
+        <p class="sub">
+          Detect likely deliveries. Recommend the next action. Store summaries —
+          not footage.
+        </p>
+      </div>
+      <label class="privacy">
+        <input type="checkbox" id="privacyToggle" checked />
+        Privacy mode
+      </label>
+    </header>
+
+    <section class="banner" id="storedFields"></section>
+
+    <main class="grid">
+      <section>
+        <h2>Detections</h2>
+        <div id="detections" class="stack"></div>
+      </section>
+      <section>
+        <h2>Next best actions</h2>
+        <div id="actions" class="stack"></div>
+        <h2 class="mt">Applied</h2>
+        <div id="applied" class="stack"></div>
+      </section>
+    </main>
+
+    <footer>
+      <span>Asemeit · pasemeit@gmail.com</span>
+      <span>Fixture mode · no raw video</span>
+    </footer>
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>
