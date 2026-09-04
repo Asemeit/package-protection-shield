@@ -2,6 +2,8 @@
 
 Read this **before** writing more code. Goal: you can explain every folder out loud without opening the files.
 
+Also see: [REQUIREMENTS.md](./REQUIREMENTS.md) · [ARCHITECTURE.md](./ARCHITECTURE.md) · [DEMO.md](./DEMO.md)
+
 ---
 
 ## 1. The problem in one sentence

@@ -15,12 +15,13 @@ Packages get stolen or missed. Camera alerts are noisy; homeowners still don’t
 3. Recommend one clear action (e.g. announce mode for 2 hours, check porch)
 4. Store **derived summaries only** (privacy-first)
 
-## Learn first
+## Docs (read in this order)
 
-Start here so you understand the system while you build it:
-
-1. **[docs/LEARN.md](docs/LEARN.md)** — problem, data flow, glossary, build-order checkpoints  
-2. **[docs/HOW_I_LEARN_PROJECTS.md](docs/HOW_I_LEARN_PROJECTS.md)** — same learning method for *every* project  
+1. **[docs/REQUIREMENTS.md](docs/REQUIREMENTS.md)** — goals, FRs/NFRs, acceptance criteria  
+2. **[docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)** — diagrams (context, sequence, local vs AWS)  
+3. **[docs/DEMO.md](docs/DEMO.md)** — how we demo (setup, timed script, Q&A)  
+4. **[docs/LEARN.md](docs/LEARN.md)** — learn-as-you-build checkpoints  
+5. **[docs/HOW_I_LEARN_PROJECTS.md](docs/HOW_I_LEARN_PROJECTS.md)** — same method for every project
 
 ## Quick start
 
