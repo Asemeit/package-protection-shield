@@ -15,13 +15,21 @@ Packages get stolen or missed. Camera alerts are noisy; homeowners still don’t
 3. Recommend one clear action (e.g. announce mode for 2 hours, check porch)
 4. Store **derived summaries only** (privacy-first)
 
+## Learn first
+
+Start here so you understand the system while you build it:
+
+1. **[docs/LEARN.md](docs/LEARN.md)** — problem, data flow, glossary, build-order checkpoints  
+2. **[docs/HOW_I_LEARN_PROJECTS.md](docs/HOW_I_LEARN_PROJECTS.md)** — same learning method for *every* project  
+
 ## Quick start
 
 ```bash
 # Requires Node.js 20+
-npm install
 npm run demo
 ```
+
+(`npm install` is optional for now — this MVP has no npm dependencies.)
 
 Open the printed local URL for the timeline dashboard. Fixture mode replays sample Ring events so the demo works without live Ring hardware.
 
@@ -33,6 +41,7 @@ services/detect/          # Delivery heuristics
 services/actions/         # Next-best-action rules
 infra/aws/                # API Gateway, Lambda, DynamoDB, S3 stubs
 fixtures/ring-events/     # Reproducible demo events
+docs/LEARN.md             # Understand-as-you-build guide
 docs/demo-script.md       # 2–3 minute video script
 ```
 
