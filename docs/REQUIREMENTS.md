@@ -146,17 +146,17 @@ Package Protection Shield turns doorbell/motion **events** into a **delivery ris
 
 ---
 
-## 10. Open questions
+## 10. Open questions → decisions (locked for week build)
 
-1. Do we treat driveway-only motion as “possible delivery” in MVP or ignore it?  
-2. Home timezone source: browser local time vs configured home TZ?  
-3. Minimum Ring API surface needed after fixtures (events only vs device health)?  
-4. Should “Was this a delivery?” feedback be in the hackathon demo or post-demo?
-
-Record decisions under **My decisions** below when answered.
+| Question | Decision (2026-09-09) |
+|----------|------------------------|
+| Driveway-only motion | **Ignore** for `likely_delivery`. Must be ding + motion on same device. |
+| Timezone | **Fixture/demo clock** for reproducible demo; home TZ post-MVP. |
+| Ring API surface after fixtures | Events metadata only (`ding`/`motion`); device health later. |
+| “Was this a delivery?” in demo? | **Yes** — in MVP demo UI this week. |
 
 ### My decisions
 
-- 
-- 
--
+- Precision over recall for MVP (fewer false positives).
+- Feedback loop ships before fancy ML.
+- October is for Ring adapter + polish, not new product scope.

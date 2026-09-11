@@ -17,11 +17,27 @@ Packages get stolen or missed. Camera alerts are noisy; homeowners still don’t
 
 ## Docs (read in this order)
 
-1. **[docs/REQUIREMENTS.md](docs/REQUIREMENTS.md)** — goals, FRs/NFRs, acceptance criteria  
-2. **[docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)** — diagrams (context, sequence, local vs AWS)  
-3. **[docs/DEMO.md](docs/DEMO.md)** — how we demo (setup, timed script, Q&A)  
-4. **[docs/LEARN.md](docs/LEARN.md)** — learn-as-you-build checkpoints  
-5. **[docs/HOW_I_LEARN_PROJECTS.md](docs/HOW_I_LEARN_PROJECTS.md)** — same method for every project
+1. **[docs/WEEK_PLAN.md](docs/WEEK_PLAN.md)** — 7-day build to MVP (October = polish)  
+2. **[docs/VIDEO.md](docs/VIDEO.md)** — how to record the ≤3 min demo  
+3. **[docs/OCTOBER_BACKLOG.md](docs/OCTOBER_BACKLOG.md)** — pending after MVP  
+4. **[docs/REQUIREMENTS.md](docs/REQUIREMENTS.md)** — goals, FRs/NFRs, acceptance criteria  
+5. **[docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)** — diagrams (context, sequence, local vs AWS)  
+6. **[docs/DEMO.md](docs/DEMO.md)** — how we demo (setup, timed script, Q&A)  
+7. **[docs/LEARN.md](docs/LEARN.md)** — learn-as-you-build checkpoints  
+8. **[docs/HOW_I_LEARN_PROJECTS.md](docs/HOW_I_LEARN_PROJECTS.md)** — same method for every project
+
+## Judge quick start (< 30 seconds)
+
+```bash
+git clone https://github.com/Asemeit/package-protection-shield.git
+cd package-protection-shield
+npm test          # should pass
+npm run demo      # → http://localhost:8787
+```
+
+No `npm install` required (zero runtime deps). Fixture mode — no Ring login, no AWS.
+
+**In the UI:** detections → “Was this a delivery?” → Apply action → Applied list → Privacy mode toggle.
 
 ## Quick start
 
@@ -30,9 +46,7 @@ Packages get stolen or missed. Camera alerts are noisy; homeowners still don’t
 npm run demo
 ```
 
-(`npm install` is optional for now — this MVP has no npm dependencies.)
-
-Open the printed local URL for the timeline dashboard. Fixture mode replays sample Ring events so the demo works without live Ring hardware.
+Open the printed local URL for the timeline dashboard.
 
 ## Repo layout
 

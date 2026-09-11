@@ -4,43 +4,122 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Package Protection Shield</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Outfit:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="/styles.css" />
   </head>
   <body>
-    <header class="top">
-      <div>
-        <p class="eyebrow">Ring track · Amazon Developer Hackathon 2026</p>
-        <h1>Package Protection Shield</h1>
-        <p class="sub">
-          Detect likely deliveries. Recommend the next action. Store summaries —
-          not footage.
+    <nav class="view-switch" aria-label="View mode">
+      <button type="button" class="view-btn is-active" id="tabHome">
+        Home · what you see
+      </button>
+      <button type="button" class="view-btn" id="tabJudge">
+        Timeline · judge demo
+      </button>
+    </nav>
+
+    <div id="viewHome" class="view">
+      <header class="pitch">
+        <p class="pitch-brand">Package Protection Shield</p>
+        <p class="pitch-line">
+          Camera noise → one package action. Summaries only — never video.
         </p>
+        <div class="pitch-actions">
+          <button type="button" class="replay" id="btnReplay">
+            Watch a delivery
+          </button>
+          <span class="aws-badge" title="AWS Builder path">
+            Same brain on Lambda · API GW · DynamoDB · S3
+          </span>
+        </div>
+      </header>
+
+      <div class="stage">
+        <div class="contrast" id="contrastPanel" aria-live="polite">
+          <div class="contrast-col before" id="beforeCol">
+            <h2>Without Shield</h2>
+            <ul class="noise-list" id="noiseList">
+              <li>Motion — driveway</li>
+              <li>Motion — street</li>
+              <li>Ding — front door</li>
+              <li>Motion — porch</li>
+              <li>Motion — driveway</li>
+              <li>Online — driveway cam</li>
+            </ul>
+            <p class="contrast-foot">Six alerts. No next step.</p>
+          </div>
+          <div class="contrast-arrow" aria-hidden="true">→</div>
+          <div class="contrast-col after" id="afterCol">
+            <h2>With Shield</h2>
+            <div class="device" aria-label="Homeowner phone preview">
+              <div class="device-notch" aria-hidden="true"></div>
+              <div class="phone" id="phoneShell">
+                <div id="homeBanner" class="status-banner is-hidden" role="status"></div>
+                <header class="phone-top">
+                  <p class="brand">Package Protection Shield</p>
+                  <p class="status-line" id="homeStatus">Front Door · watching</p>
+                </header>
+                <section class="moment" id="homeMoment">
+                  <div class="empty-state">
+                    <strong>All quiet</strong>
+                    <p>No deliveries yet. Tap Watch a delivery to replay a package drop.</p>
+                  </div>
+                </section>
+                <section class="earlier">
+                  <h2>Earlier today</h2>
+                  <ul id="homeEarlier" class="earlier-list"></ul>
+                </section>
+                <p class="privacy-note" id="homePrivacy"></p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <label class="privacy">
-        <input type="checkbox" id="privacyToggle" checked />
-        Privacy mode
-      </label>
-    </header>
+    </div>
 
-    <section class="banner" id="storedFields"></section>
+    <div id="viewJudge" class="view is-hidden">
+      <header class="top">
+        <div>
+          <p class="eyebrow">Ring track · Amazon Developer Hackathon 2026</p>
+          <h1>Package Protection Shield</h1>
+          <p class="sub">
+            Detect likely deliveries. Recommend the next action. Store summaries —
+            not footage.
+          </p>
+          <p class="badge">Fixture mode · offline demo</p>
+        </div>
+        <label class="privacy">
+          <input type="checkbox" id="privacyToggle" checked />
+          Privacy mode
+        </label>
+      </header>
 
-    <main class="grid">
-      <section>
-        <h2>Detections</h2>
-        <div id="detections" class="stack"></div>
-      </section>
-      <section>
-        <h2>Next best actions</h2>
-        <div id="actions" class="stack"></div>
-        <h2 class="mt">Applied</h2>
-        <div id="applied" class="stack"></div>
-      </section>
-    </main>
+      <section class="banner" id="storedFields"></section>
+      <section id="judgeBanner" class="status-banner judge-banner is-hidden" role="status"></section>
 
-    <footer>
-      <span>Asemeit · pasemeit@gmail.com</span>
-      <span>Fixture mode · no raw video</span>
-    </footer>
+      <main class="grid">
+        <section>
+          <h2>Detections</h2>
+          <div id="detections" class="stack"></div>
+        </section>
+        <section>
+          <h2>Next best actions</h2>
+          <div id="actions" class="stack"></div>
+          <h2 class="mt">Applied</h2>
+          <div id="applied" class="stack"></div>
+        </section>
+      </main>
+
+      <footer>
+        <span>Asemeit · pasemeit@gmail.com</span>
+        <span>Fixture mode · no raw video · AWS handler ready</span>
+      </footer>
+    </div>
+
     <script src="/app.js" type="module"></script>
   </body>
 </html>

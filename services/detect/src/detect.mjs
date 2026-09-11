@@ -25,9 +25,24 @@
 
 const WINDOW_MS = 3 * 60 * 1000;
 
+/** Zones that never count toward package delivery (street traffic, cars). */
+const IGNORE_MOTION_ZONES = new Set(["street", "driveway"]);
+
+/**
+ * Motion that can support a delivery signal (porch / door / unknown zone).
+ * @param {RingEvent} e
+ */
+function isDeliveryMotion(e) {
+  if (e.type !== "motion") return false;
+  if (e.zone && IGNORE_MOTION_ZONES.has(e.zone.toLowerCase())) return false;
+  return true;
+}
+
 /**
  * Heuristic v1: a ding near the door plus a short motion cluster in a 3-minute
  * window is treated as a likely delivery. Pure function — easy to unit test.
+ *
+ * Driveway / street motion alone (or paired with a ding) does not count.
  *
  * @param {RingEvent[]} events
  * @returns {DeliveryDetection[]}
@@ -53,7 +68,8 @@ export function detectDeliveries(events) {
     });
 
     const hasDing = windowEvents.some((e) => e.type === "ding");
-    const motionCount = windowEvents.filter((e) => e.type === "motion").length;
+    const deliveryMotions = windowEvents.filter(isDeliveryMotion);
+    const motionCount = deliveryMotions.length;
     if (!hasDing || motionCount < 1) continue;
 
     const reasonCodes = [];
@@ -70,13 +86,22 @@ export function detectDeliveries(events) {
       reasonCodes.push("motion_cluster");
       confidence += 0.1;
     }
+    const dingCount = windowEvents.filter((e) => e.type === "ding").length;
+    if (dingCount >= 2) {
+      reasonCodes.push("repeat_ding");
+      confidence += 0.05;
+    }
     confidence = Math.min(0.95, confidence);
 
     const endedAt = windowEvents[windowEvents.length - 1].occurredAt;
     const id = `det_${anchor.id}_${windowEvents.map((e) => e.id).join("_")}`;
 
     // Deduplicate overlapping windows that share the same ding
-    if (detections.some((d) => d.eventIds.includes(anchor.id) || overlap(d, t0, endedAt))) {
+    if (
+      detections.some(
+        (d) => d.eventIds.includes(anchor.id) || overlap(d, t0, endedAt),
+      )
+    ) {
       continue;
     }
 

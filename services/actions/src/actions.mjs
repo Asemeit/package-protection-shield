@@ -8,7 +8,15 @@
  * @property {'announce_mode' | 'check_porch' | 'remind_later' | 'review_zones'} kind
  * @property {number} durationMinutes
  * @property {string} detectionId
+ * @property {string} howTo Advisory deep-link stub until Ring Apply is real
  */
+
+const HOW_TO = {
+  announce_mode: "Open Ring → Modes → Announce (or enable for ~2 hours).",
+  check_porch: "Open Ring → Live View on porch device → confirm package is secure.",
+  remind_later: "Open Ring → set a reminder, or check porch in ~30 minutes.",
+  review_zones: "Open Ring → Device Settings → Motion Zones → tighten driveway/street.",
+};
 
 /**
  * Map a detection to a single next-best action.
@@ -17,8 +25,9 @@
  * @returns {RecommendedAction}
  */
 export function recommendAction(detection, opts = {}) {
-  const now = opts.now ?? new Date();
-  const hour = now.getHours();
+  const now = opts.now ?? new Date(detection.startedAt);
+  // UTC hours keep fixture demos identical in every timezone.
+  const hour = now.getUTCHours();
   const high = detection.confidence >= 0.75;
 
   if (high && hour >= 8 && hour <= 20) {
@@ -30,6 +39,7 @@ export function recommendAction(detection, opts = {}) {
       kind: "announce_mode",
       durationMinutes: 120,
       detectionId: detection.id,
+      howTo: HOW_TO.announce_mode,
     };
   }
 
@@ -42,6 +52,7 @@ export function recommendAction(detection, opts = {}) {
       kind: "check_porch",
       durationMinutes: 15,
       detectionId: detection.id,
+      howTo: HOW_TO.check_porch,
     };
   }
 
@@ -52,6 +63,7 @@ export function recommendAction(detection, opts = {}) {
     kind: "remind_later",
     durationMinutes: 30,
     detectionId: detection.id,
+    howTo: HOW_TO.remind_later,
   };
 }
 

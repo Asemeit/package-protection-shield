@@ -1,15 +1,34 @@
-# AWS Builder path (stubs)
+# AWS Builder path
 
-This folder sketches the AWS Builder mini-challenge wiring. Implement with SAM/CDK when ready.
+Same detection + action brain as local demo. Judges should use **fixture mode** (`npm run demo`) without AWS credentials.
 
 ## Flow
 
-1. **API Gateway** `POST /events` — accept normalized Ring-like events
-2. **Lambda `ingest`** — validate schema, write to DynamoDB
-3. **Lambda `detect`** — run `services/detect` heuristics, write detections
-4. **Lambda `actions`** — attach next-best-action recommendations
-5. **S3** — daily JSON summaries (privacy-safe, no media)
-6. **EventBridge (optional)** — schedule evening digest
+1. **API Gateway** `POST /events` — accept normalized Ring-like events  
+2. **Lambda** [`handler.mjs`](./handler.mjs) — `detectDeliveries` + `recommendActions`  
+3. **DynamoDB** (template) — store event summaries  
+4. **S3** (template) — daily privacy-safe JSON summaries  
+5. **EventBridge (optional)** — evening digest  
+
+## Handler (local smoke)
+
+```bash
+node infra/aws/handler.mjs
+```
+
+Or invoke the export:
+
+```js
+import { handler } from "./infra/aws/handler.mjs";
+await handler({ body: { events: [...] } });
+```
+
+## Deploy (optional — October polish)
+
+1. Package `handler.mjs` + `services/` into a Lambda zip (Node 20)  
+2. Create API Gateway HTTP API → Lambda integration on `POST /events`  
+3. Deploy CloudFormation stub: `aws cloudformation deploy --template-file infra/aws/template.yaml --stack-name pps-mvp`  
+4. Point ingest at the table/bucket names from stack outputs  
 
 ## Suggested resources
 
@@ -20,6 +39,6 @@ This folder sketches the AWS Builder mini-challenge wiring. Implement with SAM/C
 | S3 | `pps-summaries-<account>` | `summaries/YYYY-MM-DD.json` |
 | IAM | least privilege for Lambdas | no S3 public ACL |
 
-## Local first
+## Privacy
 
-Keep fixture mode (`FIXTURE_MODE=true`) as the default demo path so judges can run without AWS credentials.
+Handler response documents `storedFields` vs `notStored` (no raw video / audio / faces).

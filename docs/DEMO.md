@@ -42,26 +42,27 @@ In **≤ 3 minutes**, a judge should understand:
 
 | Time | Beat | What you show | What you say |
 |------|------|---------------|--------------|
-| 0:00–0:20 | Hook | Blank or problem slide | Packages get missed; alerts don’t say what to do next |
-| 0:20–0:40 | Context | Repo / architecture one-liner | Events in → detect → one action; no video stored |
-| 0:40–1:10 | Live detect | Timeline detections | Ding + motion → likely delivery + confidence + reasons |
-| 1:10–1:40 | Action | Click Apply | Enable announce mode / check porch — protection, not just chat |
-| 1:40–2:00 | Applied | Applied list | Intent is logged; can deep-link to Ring later |
-| 2:00–2:25 | Privacy | Toggle privacy mode | Here’s exactly what we store — summaries only |
-| 2:25–2:45 | AWS / Ring | `infra/aws` or diagram | Same pipeline on API GW / Lambda / DynamoDB / S3 |
-| 2:45–3:00 | Close | Pins / README | Ring track + AWS Builder; prevention + recovery |
+| 0:00–0:20 | Hook | Pitch line | Packages get missed; alerts don’t say what to do next |
+| 0:20–0:50 | Contrast | Click **Watch a delivery** | Six noisy alerts → one “likely delivery” + one action |
+| 0:50–1:20 | Action | Tap green CTA | Enable announce / check porch — protection, not chat |
+| 1:20–1:40 | Privacy + AWS | Badge + privacy note | Summaries only; same brain on Lambda / API GW |
+| 1:40–2:20 | Proof | Timeline tab | Confidence, reason codes, stored fields |
+| 2:20–2:45 | Ring path | Speak | Fixtures now; Ring adapter is the production ingest |
+| 2:45–3:00 | Close | Brand | Ring track + AWS Builder; prevention + recovery |
 
 ---
 
-## 4. Click path (exact)
+## Click path (exact)
 
-1. Terminal: `npm run demo`  
-2. Browser: open printed URL  
-3. Point at **Detections** card (`likely delivery`, bar, reason pills)  
-4. Point at **Next best actions** → click **Apply action**  
-5. Scroll/point **Applied**  
-6. Toggle **Privacy mode** → read **Stored fields** banner  
-7. (Optional) Open `docs/ARCHITECTURE.md` diagram or AWS README for 10 seconds  
+1. Terminal: `npm run demo` → open printed URL  
+2. Say the pitch line on screen: *Camera noise → one package action*  
+3. Click **Watch a delivery** — noisy alerts stack, then Shield shows one moment  
+4. Tap the green CTA → wait for **✓ Active until …** + status banner  
+5. Point at AWS badge: same brain on Lambda / API GW / DynamoDB / S3  
+6. Switch to **Timeline · judge demo** — confidence, reasons, privacy fields, Applied  
+7. Optional: Yes/No feedback on a detection  
+
+Full shoot checklist: [VIDEO.md](./VIDEO.md)
 
 ---
 

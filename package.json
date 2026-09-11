@@ -8,6 +8,7 @@
   "type": "module",
   "scripts": {
     "demo": "node scripts/demo.mjs",
+    "aws:smoke": "node infra/aws/handler.mjs",
     "detect:test": "node --test services/detect/src/detect.test.mjs",
     "actions:test": "node --test services/actions/src/actions.test.mjs",
     "test": "npm run detect:test && npm run actions:test"
