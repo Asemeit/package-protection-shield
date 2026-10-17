@@ -2,7 +2,25 @@
 
 **Goal:** One clean take judges can watch without reading the repo.
 
-Related: [DEMO.md](./DEMO.md) · [demo-script.md](./demo-script.md)
+Related: [DEMO.md](./DEMO.md) · [demo-script.md](./demo-script.md) · [video/VOICEOVER_TRANSCRIPT.md](./video/VOICEOVER_TRANSCRIPT.md)
+
+## Submission files (~1:53)
+
+| File | Use |
+|------|-----|
+| [`video/pps-demo-captions.mp4`](./video/pps-demo-captions.mp4) | Captions already on; upload or practice |
+| [`video/pps-demo-silent.webm`](./video/pps-demo-silent.webm) | Best base for **your** voiceover |
+| [`video/VOICEOVER_TRANSCRIPT.md`](./video/VOICEOVER_TRANSCRIPT.md) | What to say + timestamps |
+
+---
+
+## Record yourself in ~10 minutes (QuickTime)
+
+1. Restart demo: `npm run demo` → http://localhost:8787 · Cmd+Shift+R  
+2. Open **QuickTime Player** → **File → New Screen Recording**  
+3. Choose built-in mic · record the browser window only  
+4. Follow the shot list below while reading [demo-script.md](./demo-script.md)  
+5. Stop · trim to ≤3:00 · export MP4  
 
 ---
 
