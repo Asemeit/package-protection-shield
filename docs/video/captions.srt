@@ -1,0 +1,29 @@
+1
+00:00:00,000 --> 00:00:15,000
+HOME — The problem
+Packages get missed. Camera alerts are noise — no next step.
+
+2
+00:00:15,000 --> 00:00:42,000
+WATCH A DELIVERY
+Without Shield: six alerts. With Shield: one likely delivery.
+
+3
+00:00:42,000 --> 00:00:58,000
+APPLY — Protection active
+One next action. Summaries only — never doorbell video.
+
+4
+00:00:58,000 --> 00:01:25,000
+TIMELINE — Judge proof
+Confidence scores · reason codes · stored fields
+
+5
+00:01:25,000 --> 00:01:38,000
+PRIVACY MODE
+Toggle stored-fields emphasis — still no raw footage.
+
+6
+00:01:38,000 --> 00:01:55,000
+CLOSE — Ring track + AWS Builder
+Same brain on Lambda · API GW · DynamoDB · S3
